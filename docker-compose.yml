@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  integratedml:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: iris:integratedml
+    ports: ["51774:1972","52774:52773"]
+    container_name: integratedml
+    volumes: ["./data:/data", "./code:/code"]
+    environment: 
+      - ISC_DATA_DIRECTORY=/data/config
+      - TZ=JST-9
+    command: --key /data/iris.key
