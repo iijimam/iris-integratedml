@@ -23,25 +23,31 @@ containers.intersystems.com/intersystems/irishealth-ml:2021.2.0.649.0
 
 1) シェルの実行（初回のみ）
 
-    永続的な%SYSを利用する場合は、[data](./data)ディレクトリの権限を変更するため以下シェルを実行してください。
+    永続的な%SYSを利用する場合は、data ディレクトリの権限を変更するため以下シェルを実行してください。
 
     ```
     ./setup.sh
     ```
 
-2) コンテナビルド＆開始
+2) ライセンスキーの準備
+
+    コンテナ用キーを data ディレクトリ以下に配置してください。
+    コンテナ作成時にキーをコピーしてIRISに適用します。
+
+
+3) コンテナビルド＆開始
 
     ```
     docker-compose up -d --build
     ```
 
-3) コンテナ停止
+4) コンテナ停止
 
     ```
     docker-compose stop
     ```
 
-4) コンテナ破棄
+5) コンテナ破棄
 
     ```
     docker-compose down
@@ -66,7 +72,6 @@ containers.intersystems.com/intersystems/irishealth-ml:2021.2.0.649.0
     ```
 3) Pythonシェル上でIRISのSample.Personのインスタンス生成から保存を試す
 
-    Python>>> IRISのインスタンス生成から保存
     ```
     import iris
     p=iris.cls("Sample.Person")._New()
@@ -82,7 +87,7 @@ containers.intersystems.com/intersystems/irishealth-ml:2021.2.0.649.0
     INSERT INTO Sample.Person (Name,Email) VALUES('鈴木花子','hana@mail.com')
     ```
 
-5) 4)で作成したデータをPythonシェルからオープンする
+5) 4.で作成したデータをPythonシェルからオープンする
 
     ```
     p=iris.cls("Sample.Person")._OpenId(2)
@@ -111,7 +116,7 @@ containers.intersystems.com/intersystems/irishealth-ml:2021.2.0.649.0
     ```
 
 
-7) dataframeへの変換を試します。
+7) dataframeへの変換を試す
 
     > 2021.2では、日本語を含むレコードからDataframeへ変換する処理に不具合があるため、英字データのみでご確認ください。
 
@@ -149,7 +154,7 @@ containers.intersystems.com/intersystems/irishealth-ml:2021.2.0.649.0
     set bar=##class(%SYS.Python).Import("barchart")
     do bar.buildGraph("/data/a.jpg","beer","lowmaltbeer")
     ```
-    [/data](data)以下に a.jpg が作成されます。
+    data ディレクトリ以下に a.jpg が作成されます。
 
     ※ [Dockerfile](/Dockerfile)を使用せずにコンテナを開始した場合は、matplotlib をインストールしてからお試しください。
 
