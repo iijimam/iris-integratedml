@@ -52,7 +52,7 @@ WHERE ID>301
 
 /* 認知症の可能性予測 */
 DROP MODEL Dementia
-TRUNCATE TABLE Kaggle.ResultDementia
+DROP TABLE Kaggle.ResultDementia
 
 --- モデルの作成
 CREATE MODEL Dementia PREDICTING(DementiaGroup) from Kaggle.DementiaTrain
