@@ -19,6 +19,9 @@ containers.intersystems.com/intersystems/irishealth-ml:2021.2.0.649.0
 
 このコンテナは、永続的な%SYSを利用しています。不要な場合は[docker-compose.yml](./docker-compose.yml) の13行目を削除してご利用ください。
 
+また、IRISのWebサーバポートは**52774**を使っています。ご注意ください。
+
+
 ## コンテナ開始・停止手順
 
 1) シェルの実行（初回のみ）
