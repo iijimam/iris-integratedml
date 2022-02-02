@@ -83,6 +83,8 @@ containers.intersystems.com/intersystems/irishealth-ml:2021.2.0.649.0
 
 4) 管理ポータルやSQLToolsなどから1件Sample.PersonをINSERTする
 
+    > SQLToolsエクステンションを使ってIRISに接続する方法は[コミュニティの記事](https://jp.community.intersystems.com/node/489316)をご参照ください。
+
     ```
     INSERT INTO Sample.Person (Name,Email) VALUES('鈴木花子','hana@mail.com')
     ```
